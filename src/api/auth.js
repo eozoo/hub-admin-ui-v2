@@ -175,6 +175,9 @@ export const getOAuth2Code = (data) => {
   return request({
     url: '/admin/api/v1/oauth/client/authorize/code',
     method: 'post',
-    data: data
+    data: data,
+    headers: {
+      noNotify: true
+    }
   })
 }

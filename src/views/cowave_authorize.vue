@@ -1,6 +1,13 @@
 <template>
   <div class="login">
-    <el-form ref="form" :model="form" class="login-form">
+    <!-- 授权错误页 -->
+    <div v-if="error" class="login-form">
+      <h3 class="title">授权失败</h3>
+      <p class="error-msg">{{ error }}</p>
+      <el-button type="primary" style="width:100%;" @click="goBack">返回</el-button>
+    </div>
+    <!-- 授权表单 -->
+    <el-form v-else ref="form" :model="form" class="login-form">
       <h3 class="title">授权应用访问</h3>
       <el-form-item prop="clientName">
         <el-input v-model="form.clientName" type="text" label="应用名称">
@@ -33,12 +40,15 @@ export default {
     return {
       version: "",
       year: new Date().getFullYear(),
+      error: "",
       form: {},
       param: {
         state: undefined,
         client_id: undefined,
         redirect_uri: undefined,
-        response_type: undefined
+        response_type: undefined,
+        code_challenge: undefined,
+        code_challenge_method: undefined
       }
     };
   },
@@ -48,11 +58,22 @@ export default {
     this.param.client_id = this.$route.query.client_id;
     this.param.redirect_uri = this.$route.query.redirect_uri;
     this.param.response_type = this.$route.query.response_type;
+    this.param.code_challenge = this.$route.query.code_challenge;
+    this.param.code_challenge_method = this.$route.query.code_challenge_method;
     getOAuth2Code(this.param).then(resp => {
       this.form = resp.data;
+    }).catch(err => {
+      this.error = (err && err.message) || "授权失败，请重试";
     });
   },
   methods: {
+    goBack() {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.close();
+      }
+    },
     handleRedirect() {
       if (process.env.NODE_ENV === 'production') {
         window.location.href = '/prod-api/admin/api/v1/oauth/client/redirect/' + this.form.code;
@@ -92,6 +113,13 @@ export default {
   margin: 0px auto 30px auto;
   text-align: center;
   color: #ffffff;
+}
+
+.error-msg {
+  text-align: center;
+  color: #f56c6c;
+  margin-bottom: 24px;
+  word-break: break-all;
 }
 
 .login-form {

@@ -115,7 +115,10 @@ service.interceptors.response.use(response => {
         return Promise.reject('认证失败')
       } else {
         let msg = response.data.msg || "服务请求失败";
-        Notification.error({ title: msg, duration: 3000 })
+        const noNotify = error.config && error.config.headers && error.config.headers.noNotify;
+        if (!noNotify) {
+          Notification.error({ title: msg, duration: 3000 })
+        }
         return Promise.reject(new Error(msg))
       }
     } else {
