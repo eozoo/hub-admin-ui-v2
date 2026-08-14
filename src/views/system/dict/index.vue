@@ -27,19 +27,19 @@
       </el-col>
       <el-col :span="1.5">
         <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="handleAdd"
-                   :disabled="!checkPermit(['hub:dict:create'])">
+                   :disabled="!checkPermit(['sys:dict:create'])">
           {{$t('commons.button.create')}}
         </el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button type="danger" plain icon="el-icon-delete" size="mini" @click="handleDelete"
-                   :disabled="multiple || !checkPermit(['hub:dict:delete'])">
+                   :disabled="multiple || !checkPermit(['sys:dict:delete'])">
           {{$t('commons.button.delete')}}
         </el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button type="warning" plain icon="el-icon-download" size="mini" @click="handleExport"
-                   :disabled="!checkPermit(['hub:dict:export'])">
+                   :disabled="!checkPermit(['sys:dict:export'])">
           {{$t('commons.button.export')}}
         </el-button>
       </el-col>
@@ -89,7 +89,7 @@
             {{$t('commons.button.edit')}}
           </el-button>
           <el-button size="mini" type="text" icon="el-icon-delete" @click="handleDelete(scope.row)"
-                     :disabled="!checkPermit(['hub:dict:delete'])">
+                     :disabled="!checkPermit(['sys:dict:delete'])">
             {{$t('commons.button.delete')}}
           </el-button>
         </template>
@@ -176,7 +176,7 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['hub:dict:edit'])">
+        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['sys:dict:edit'])">
           {{$t('commons.button.confirm')}}
         </el-button>
         <el-button @click="cancel">{{$t('commons.button.cancel')}}</el-button>

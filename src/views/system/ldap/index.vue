@@ -151,8 +151,8 @@
         </el-row>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="handleValid" :disabled="!checkPermit(['hub:ldap:edit'])">测试</el-button>
-        <el-button @click="submitForm" :disabled="!checkPermit(['hub:ldap:edit'])">保存</el-button>
+        <el-button type="primary" @click="handleValid" :disabled="!checkPermit(['sys:ldap:edit'])">测试</el-button>
+        <el-button @click="submitForm" :disabled="!checkPermit(['sys:ldap:edit'])">保存</el-button>
         <el-button @click="cancel">取消</el-button>
       </div>
     </el-dialog>

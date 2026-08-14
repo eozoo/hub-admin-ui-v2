@@ -28,13 +28,13 @@
       </el-col>
       <el-col :span="1.5">
         <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="handleAdd"
-                   :disabled="!checkPermit(['hub:menu:create'])">
+                   :disabled="!checkPermit(['sys:menu:create'])">
           {{$t('commons.button.create')}}
         </el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button type="warning" plain icon="el-icon-download" size="mini" @click="handleExport"
-                   :disabled="!checkPermit(['hub:menu:export'])">
+                   :disabled="!checkPermit(['sys:menu:export'])">
           {{$t('commons.button.export')}}
         </el-button>
       </el-col>
@@ -107,11 +107,11 @@
             {{$t('commons.button.edit')}}
           </el-button>
           <el-button size="mini" type="text" icon="el-icon-plus" @click="handleAdd(scope.row)"
-                     :disabled="!checkPermit(['hub:menu:create'])">
+                     :disabled="!checkPermit(['sys:menu:create'])">
             {{$t('commons.button.create')}}
           </el-button>
           <el-button size="mini" type="text" icon="el-icon-delete" @click="handleDelete(scope.row)"
-                     :disabled="!checkPermit(['hub:menu:delete'])">
+                     :disabled="!checkPermit(['sys:menu:delete'])">
             {{$t('commons.button.delete')}}
           </el-button>
         </template>
@@ -309,7 +309,7 @@
       </el-form>
 
       <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['hub:menu:edit'])">
+        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['sys:menu:edit'])">
           {{$t('commons.button.confirm')}}
         </el-button>
         <el-button @click="cancel">{{$t('commons.button.cancel')}}</el-button>

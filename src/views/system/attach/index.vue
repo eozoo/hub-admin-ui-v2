@@ -27,7 +27,7 @@
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
         <el-button type="danger" plain icon="el-icon-delete" size="mini" @click="handleDelete"
-                   :disabled="multiple || !checkPermit(['hub:attach:delete'])">
+                   :disabled="multiple || !checkPermit(['sys:attach:delete'])">
           {{$t('commons.button.delete')}}
         </el-button>
       </el-col>
@@ -93,11 +93,11 @@
       <el-table-column :label="$t('commons.label.options')" align="center" class-name="small-padding" width="180">
         <template slot-scope="scope">
           <el-button size="mini" type="text" icon="el-icon-view" @click="handlePreview(scope.row)"
-                     :disabled="!checkPermit(['hub:attach:preview'])">
+                     :disabled="!checkPermit(['sys:attach:preview'])">
             {{$t('commons.button.preview')}}
           </el-button>
           <el-button size="mini" type="text" icon="el-icon-download" @click="handleDownload(scope.row)"
-                     :disabled="!checkPermit(['hub:attach:download'])">
+                     :disabled="!checkPermit(['sys:attach:download'])">
             {{$t('commons.button.download')}}
           </el-button>
         </template>

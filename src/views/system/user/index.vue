@@ -43,37 +43,37 @@
         <el-row :gutter="10" class="mb8">
           <el-col :span="1.5">
             <el-button type="primary" plain  size="mini" icon="el-icon-plus" @click="handleAdd"
-                       :disabled="!checkPermit(['hub:user:create'])">
+                       :disabled="!checkPermit(['sys:user:create'])">
               {{$t('commons.button.create')}}
             </el-button>
           </el-col>
           <el-col :span="1.5">
             <el-button type="success" plain size="mini" icon="el-icon-edit" @click="handleUpdate"
-                       :disabled="single || !checkPermit(['hub:user:edit'])">
+                       :disabled="single || !checkPermit(['sys:user:edit'])">
               {{$t('commons.button.edit')}}
             </el-button>
           </el-col>
           <el-col :span="1.5">
             <el-button type="danger" plain size="mini" icon="el-icon-delete" @click="handleDelete"
-                       :disabled="multiple || !checkPermit(['hub:user:delete'])">
+                       :disabled="multiple || !checkPermit(['sys:user:delete'])">
               {{$t('commons.button.delete')}}
             </el-button>
           </el-col>
           <el-col :span="1.5">
             <el-button type="warning" plain size="mini" icon="el-icon-upload2" @click="handleImport"
-                       :disabled="!checkPermit(['hub:user:import'])">
+                       :disabled="!checkPermit(['sys:user:import'])">
               {{$t('commons.button.import')}}
             </el-button>
           </el-col>
           <el-col :span="1.5">
             <el-button type="warning" plain size="mini" icon="el-icon-download" @click="handleExport"
-                       :disabled="!checkPermit(['hub:user:export'])">
+                       :disabled="!checkPermit(['sys:user:export'])">
               {{$t('commons.button.export')}}
             </el-button>
           </el-col>
           <el-col :span="1.5">
             <el-button type="primary" plain size="mini" @click="showDiagram"
-                       :disabled="!checkPermit(['hub:user:diagram'])">
+                       :disabled="!checkPermit(['sys:user:diagram'])">
               <svg-icon icon-class="tree"/> {{$t('commons.button.diagram')}}
             </el-button>
           </el-col>
@@ -128,7 +128,7 @@
           <el-table-column v-if="cols[7].show" :label="$t('user.label.status')" prop="userStatus" align="center" width="60">
             <template slot-scope="scope">
               <el-switch v-model="scope.row.userStatus" @change="handleStatusChange(scope.row)"
-                         :active-value=1 :inactive-value=0 :disabled="scope.row.userId === 1 || !checkPermit(['hub:user:status'])"/>
+                         :active-value=1 :inactive-value=0 :disabled="scope.row.userId === 1 || !checkPermit(['sys:user:status'])"/>
             </template>
           </el-table-column>
           <el-table-column v-if="cols[8].show" :label="$t('commons.label.createTime')" prop="createTime">
@@ -148,7 +148,7 @@
                 {{$t('commons.button.edit')}}
               </el-button>
               <el-button size="mini" type="text" icon="el-icon-delete" @click="handleDelete(scope.row)"
-                         :disabled="scope.row.userId === 1 || !checkPermit(['hub:user:delete'])">
+                         :disabled="scope.row.userId === 1 || !checkPermit(['sys:user:delete'])">
                 {{$t('commons.button.delete')}}
               </el-button>
               <el-dropdown size="mini" @command="(command) => handleCommand(command, scope.row)">
@@ -157,11 +157,11 @@
                 </span>
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item v-if="scope.row.userType === 'sys'" command="handleResetPwd" icon="el-icon-key"
-                                    :disabled="scope.row.userId === 1 || !checkPermit(['hub:user:passwd'])">
+                                    :disabled="scope.row.userId === 1 || !checkPermit(['sys:user:passwd'])">
                     {{$t('user.button.passwd')}}
                   </el-dropdown-item>
                   <el-dropdown-item command="handleAuthRole" icon="el-icon-circle-check"
-                                    :disabled="scope.row.userId === 1 || !checkPermit(['hub:user:grant'])">
+                                    :disabled="scope.row.userId === 1 || !checkPermit(['sys:user:grant'])">
                     {{$t('user.button.grant')}}
                   </el-dropdown-item>
                 </el-dropdown-menu>
@@ -275,7 +275,7 @@
         </el-tab-pane>
       </el-tabs>
       <div v-if="activeTab === 'basic'" slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['hub:user:edit'])">
+        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['sys:user:edit'])">
           {{$t('commons.button.confirm')}}
         </el-button>
         <el-button @click="cancel">{{$t('commons.button.cancel')}}</el-button>

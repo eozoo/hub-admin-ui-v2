@@ -25,7 +25,7 @@
       </el-col>
       <el-col :span="1.5">
         <el-button type="danger" plain size="mini" icon="el-icon-circle-close" @click="removeSelectedManager"
-                   :disabled="multiple || !checkPermit(['hub:tenant:manager:remove'])">
+                   :disabled="multiple || !checkPermit(['sys:tenant:manager:remove'])">
           {{ $t('tenant.button.manager_remove') }}
         </el-button>
       </el-col>
@@ -59,7 +59,7 @@
       <el-table-column :label="$t('commons.label.options')" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button size="mini" type="text" icon="el-icon-circle-close" @click="removeTenantManager(scope.row)"
-                     :disabled="scope.row.userId === 1 || !checkPermit(['hub:tenant:manager:remove'])">
+                     :disabled="scope.row.userId === 1 || !checkPermit(['sys:tenant:manager:remove'])">
             {{ $t('commons.button.remove') }}
           </el-button>
         </template>
@@ -82,7 +82,7 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['hub:tenant:manager:create'])">
+        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['sys:tenant:manager:create'])">
           {{$t('commons.button.confirm')}}
         </el-button>
         <el-button @click="cancel">{{$t('commons.button.cancel')}}</el-button>

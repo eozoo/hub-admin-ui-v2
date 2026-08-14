@@ -23,7 +23,7 @@
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
         <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="handleAdd"
-                   :disabled="!checkPermit(['hub:config:create'])">
+                   :disabled="!checkPermit(['sys:config:create'])">
           {{$t('commons.button.create')}}
         </el-button>
       </el-col>
@@ -34,19 +34,19 @@
       </el-col>
       <el-col :span="1.5">
         <el-button type="danger" plain icon="el-icon-delete" size="mini" @click="handleDelete"
-                   :disabled="multiple || !checkPermit(['hub:config:delete'])">
+                   :disabled="multiple || !checkPermit(['sys:config:delete'])">
           {{$t('commons.button.delete')}}
         </el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button type="warning" plain icon="el-icon-download" size="mini" @click="handleExport"
-                   :disabled="!checkPermit(['hub:config:export'])">
+                   :disabled="!checkPermit(['sys:config:export'])">
           {{$t('commons.button.export')}}
         </el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button type="danger" plain icon="el-icon-refresh" size="mini" @click="handleRefreshCache"
-                   :disabled="!checkPermit(['hub:config:reset'])">
+                   :disabled="!checkPermit(['sys:config:reset'])">
           {{$t('config.button.reset')}}
         </el-button>
       </el-col>
@@ -90,7 +90,7 @@
             {{$t('commons.button.edit')}}
           </el-button>
           <el-button size="mini" type="text" icon="el-icon-delete" @click="handleDelete(scope.row)"
-                     :disabled="!checkPermit(['hub:config:delete'])">
+                     :disabled="!checkPermit(['sys:config:delete'])">
             {{$t('commons.button.delete')}}
           </el-button>
         </template>
@@ -134,7 +134,7 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['hub:config:edit'])">
+        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['sys:config:edit'])">
           {{$t('commons.button.confirm')}}
         </el-button>
         <el-button @click="cancel">{{$t('commons.button.cancel')}}</el-button>

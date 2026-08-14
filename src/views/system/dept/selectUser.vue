@@ -52,7 +52,7 @@
       <pagination v-show="total>0" :total="total" :page.sync="queryParams.page" :limit.sync="queryParams.pageSize" @pagination="getList"/>
     </el-row>
     <div slot="footer" class="dialog-footer">
-      <el-button type="primary" @click="handleSubmit" :disabled="!checkPermit(['hub:dept:members:add'])">
+      <el-button type="primary" @click="handleSubmit" :disabled="!checkPermit(['sys:dept:members:add'])">
         {{$t('commons.button.confirm')}}
       </el-button>
       <el-button @click="visible = false">{{$t('commons.button.cancel')}}</el-button>

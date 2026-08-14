@@ -17,7 +17,7 @@
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
         <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="handleAdd"
-                   :disabled="!checkPermit(['hub:tenant:create'])">
+                   :disabled="!checkPermit(['sys:tenant:create'])">
           {{$t('commons.button.create')}}
         </el-button>
       </el-col>
@@ -54,7 +54,7 @@
       <el-table-column :label="$t('tenant.label.status')" prop="tenantStatus" align="center" width="60">
         <template slot-scope="scope">
           <el-switch v-model="scope.row.status" @change="handleStatusChange(scope.row)"
-                     :active-value=1 :inactive-value=0 :disabled="scope.row.tenantId === 'system' || !checkPermit(['hub:tenant:status'])"/>
+                     :active-value=1 :inactive-value=0 :disabled="scope.row.tenantId === 'system' || !checkPermit(['sys:tenant:status'])"/>
         </template>
       </el-table-column>
       <el-table-column :label="$t('commons.label.createTime')" align="center" prop="createTime" width="180">
@@ -150,7 +150,7 @@
         </el-row>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['hub:config:edit'])">
+        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['sys:config:edit'])">
           {{$t('commons.button.confirm')}}
         </el-button>
         <el-button @click="cancel">{{$t('commons.button.cancel')}}</el-button>

@@ -60,6 +60,7 @@
         </template>
       </el-table-column>
       <el-table-column label="令牌类型" align="center" prop="authType" width="120" />
+      <el-table-column label="用户类型" align="center" prop="userType" width="120" />
       <el-table-column label="登录账号" align="center" prop="userAccount" width="140" :show-overflow-tooltip="true" />
       <el-table-column label="登录名称" align="center" prop="userName" width="140" :show-overflow-tooltip="true" />
       <el-table-column label="登录id" align="center" prop="refreshId" width="280" :show-overflow-tooltip="true" />

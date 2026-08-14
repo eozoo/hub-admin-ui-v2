@@ -22,25 +22,25 @@
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
         <el-button type="primary" plain size="mini" icon="el-icon-plus" @click="handleAdd"
-                   :disabled="!checkPermit(['hub:role:create'])">
+                   :disabled="!checkPermit(['sys:role:create'])">
           {{$t('commons.button.create')}}
         </el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button type="success" plain size="mini" icon="el-icon-edit" @click="handleUpdate"
-                   :disabled="single || !checkPermit(['hub:role:edit'])">
+                   :disabled="single || !checkPermit(['sys:role:edit'])">
           {{$t('commons.button.edit')}}
         </el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button type="danger" plain size="mini" icon="el-icon-delete" @click="handleDelete"
-                   :disabled="multiple || !checkPermit(['hub:role:delete'])">
+                   :disabled="multiple || !checkPermit(['sys:role:delete'])">
           {{$t('commons.button.delete')}}
         </el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button type="warning" plain size="mini" icon="el-icon-download" @click="handleExport"
-                   :disabled="!checkPermit(['hub:role:export'])">
+                   :disabled="!checkPermit(['sys:role:export'])">
           {{$t('commons.button.export')}}
         </el-button>
       </el-col>
@@ -74,7 +74,7 @@
             {{$t('commons.button.edit')}}
           </el-button>
           <el-button size="mini" type="text" icon="el-icon-delete" @click="handleDelete(scope.row)"
-                     :disabled="scope.row.tenantId === '#' || !checkPermit(['hub:role:delete'])">
+                     :disabled="scope.row.tenantId === '#' || !checkPermit(['sys:role:delete'])">
             {{$t('commons.button.delete')}}
           </el-button>
           <el-button size="mini" type="text" @click="handleAppScope(scope.row)" :disabled="scope.row.tenantId === '#'">
@@ -106,7 +106,7 @@
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitForm"
-                   :disabled="form.roleCode === 'sysAdmin' || !checkPermit(['hub:role:edit'])">
+                   :disabled="form.roleCode === 'sysAdmin' || !checkPermit(['sys:role:edit'])">
           {{$t('commons.button.confirm')}}
         </el-button>
         <el-button @click="cancel">{{$t('commons.button.cancel')}}</el-button>
@@ -170,7 +170,7 @@
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitMenuScope"
-                   :disabled="form.roleCode === 'sysAdmin' || !checkPermit(['hub:role:menus'])">
+                   :disabled="form.roleCode === 'sysAdmin' || !checkPermit(['sys:role:menus'])">
           {{$t('commons.button.confirm')}}
         </el-button>
         <el-button @click="cancelMenuScope">{{$t('commons.button.cancel')}}</el-button>

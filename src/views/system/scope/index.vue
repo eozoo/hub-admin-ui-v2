@@ -17,19 +17,19 @@
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
         <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="handleAdd"
-                   :disabled="!checkPermit(['hub:scope:create'])">
+                   :disabled="!checkPermit(['sys:scope:create'])">
           {{$t('commons.button.create')}}
         </el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button type="success" plain icon="el-icon-edit" size="mini" @click="handleUpdate"
-                   :disabled="single || !checkPermit(['hub:scope:edit'])">
+                   :disabled="single || !checkPermit(['sys:scope:edit'])">
           {{$t('commons.button.edit')}}
         </el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button type="danger" plain icon="el-icon-delete" size="mini" @click="handleDelete"
-                   :disabled="multiple || !checkPermit(['hub:scope:delete'])">
+                   :disabled="multiple || !checkPermit(['sys:scope:delete'])">
           {{$t('commons.button.delete')}}
         </el-button>
       </el-col>
@@ -57,7 +57,7 @@
       <el-table-column :label="$t('commons.label.status')" align="center" prop="userStatus">
         <template slot-scope="scope">
           <el-switch v-model="scope.row.scopeStatus" @change="handleStatusChange(scope.row)"
-                     :active-value=1 :inactive-value=0 :disabled="!checkPermit(['hub:scope:edit'])"/>
+                     :active-value=1 :inactive-value=0 :disabled="!checkPermit(['sys:scope:edit'])"/>
         </template>
       </el-table-column>
       <el-table-column :label="$t('commons.label.createTime')" align="center" prop="createTime">
@@ -73,11 +73,11 @@
       <el-table-column :label="$t('commons.label.options')" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button size="mini" type="text" icon="el-icon-edit" @click="handleUpdate(scope.row)"
-                     :disabled="!checkPermit(['hub:scope:edit'])">
+                     :disabled="!checkPermit(['sys:scope:edit'])">
             {{$t('commons.button.edit')}}
           </el-button>
           <el-button size="mini" type="text" icon="el-icon-delete" @click="handleDelete(scope.row)"
-                     :disabled="!checkPermit(['hub:scope:delete'])">
+                     :disabled="!checkPermit(['sys:scope:delete'])">
             {{$t('commons.button.delete')}}
           </el-button>
           <el-button size="mini" type="text" icon="el-icon-edit" @click="handleView(scope.row)">
@@ -101,7 +101,7 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['hub:scope:edit'])">
+        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['sys:scope:edit'])">
           {{$t('commons.button.confirm')}}
         </el-button>
         <el-button @click="cancel">{{$t('commons.button.cancel')}}</el-button>

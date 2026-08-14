@@ -17,7 +17,7 @@
       </el-row>
     </el-form>
     <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['hub:scope:edit'])">
+        <el-button type="primary" @click="submitForm" :disabled="!checkPermit(['sys:scope:edit'])">
           {{$t('commons.button.confirm')}}
         </el-button>
         <el-button @click="cancel">{{$t('commons.button.cancel')}}</el-button>
