@@ -222,8 +222,9 @@ export default {
       this.menuExpand2 = false;
       this.menuOptions2 = this.deepCopyWithDisabled(this.menuOptions);
       this.$nextTick(() => {
-        this.$refs.menuTree2.setCheckedKeys(row.menuIds);
-        this.menuOptions2 = this.filterTreeData(this.menuOptions2, row.menuIds);
+        const checkedIds = this.findIdsByPermits(row.permits || [], this.menuOptions);
+        this.$refs.menuTree2.setCheckedKeys(checkedIds);
+        this.menuOptions2 = this.filterTreeData(this.menuOptions2, checkedIds);
       });
       this.showPermit = true;
     },
@@ -264,7 +265,7 @@ export default {
       return checkedKeys.map(id => {
         let node = this.findNodeById(id, this.menuOptions);
         return {
-          menuId: id,
+          permit: (node && node.menuPermit) ? node.menuPermit : null,
           scopeId: (node && node.scopeId) ? node.scopeId : null
         };
       });
@@ -278,6 +279,19 @@ export default {
         }
       }
       return null
+    },
+    findIdsByPermits(permits, nodes) {
+      const ids = []
+      const walk = (list) => {
+        for (let node of list) {
+          if (permits.includes(node.menuPermit)) {
+            ids.push(node.id)
+          }
+          if (node.children) walk(node.children)
+        }
+      }
+      walk(nodes)
+      return ids
     },
     /** 展开/折叠 */
     handleCheckedTreeExpand(value, type) {
